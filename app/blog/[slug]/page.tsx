@@ -4,11 +4,11 @@ type Params = {
 
 export async function generateMetadata({ params }: Params) {
   const { slug } = await params;
-  return { title: `Post: ${slug}` };
+  return { title: `Post: ${slug && slug || ''}` };
 }
 
 export default async function Page({ params }: Params) {
   const { slug } = await params;
-  return <h1>Slug: {slug}</h1>;
+  return <h1>Slug: {slug && slug || ''}</h1>;
 }
 
